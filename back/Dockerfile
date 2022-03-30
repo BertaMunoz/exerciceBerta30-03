@@ -3,5 +3,5 @@ WORKDIR /usr/src
 COPY ./package.json .
 RUN npm install
 COPY . .
-CMD ["tsc", "&&", "node", "server.js"]
+CMD ["npm", "run", "start"]
 
