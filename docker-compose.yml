@@ -18,6 +18,20 @@ services:
       - ./dump/mongorestore.sh:/docker-entrypoint-initdb.d/mongorestore.sh:ro
   # Conteneur frontend
   front:
+    container_name: front
+    build: ./front
+    ports:
+      - 80:80
+    depends_on:
+      - back
+
     
   back:
+    container_name: back
+    build: ./back
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+
     
